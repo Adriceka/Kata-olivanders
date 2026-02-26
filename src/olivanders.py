@@ -20,3 +20,18 @@ class Inventario:
     def update(self):
         for item in self.items:
             item.update()
+
+class NormalItem(Item):
+
+    def update(self):
+        decremento = 1 if self.sell_in > 0 else 2
+        self.quality -= decremento
+        self.sell_in -= 1
+
+
+class AgedBrie(Item):
+
+    def update(self):
+        incremento = 1 if self.sell_in > 0 else 2
+        self.quality += incremento
+        self.sell_in -= 1
